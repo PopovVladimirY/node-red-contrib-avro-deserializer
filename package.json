@@ -12,5 +12,8 @@
     "nodes": {
       "msensor-avro": "msensor-avro.js"
     }
+  },
+  "dependencies": {
+    "avro-js": "^1.11.3"
   }
 }
