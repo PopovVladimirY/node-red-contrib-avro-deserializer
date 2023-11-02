@@ -1,5 +1,5 @@
 {
-  "name": "msensor-avro",
+  "name": "node-red-contrib-msensor-avro",
   "version": "1.0.0",
   "description": "",
   "main": "msensor-avro.js",

@@ -1,20 +1,20 @@
 <script type="text/javascript">
     RED.nodes.registerType('msensor-avro',{
-        category: 'function',
-        color: '#b6ffcf',
+        category: 'm-sensor',
+        color: '#a6bbcf',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            avroSchema: {value:"abc"},
         },
         inputs: 1,
         outputs: 1,
-        icon: "",
-        icon: "file.svg",
+        icon: "function.svg",
         label: function() {
             return this.name||"msensor-avro";
         },
         oneditprepare: function() {
             this.editor = RED.editor.createEditor({
-                id: 'avro-schema-editor',
+                id: 'node-input-avroSchema-editor',
                 mode: 'ace/mode/text',
                 value: this.avroSchema
             });
@@ -33,10 +33,15 @@
 
 <script type="text/html" data-template-name="msensor-avro">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Avro Schema">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
-    <!--div style="height: 250px; min-height:150px;" class="node-text-editor" id="avro-schema-editor">
-    </div-->
+    <div class="form-row">
+        <label for="node-input-avroSchema-editor"><i class="fa fa-tag"></i>Avro Schema</label>
+        <div style="height: 250px; min-height:150px;" class="node-text-editor" id="node-input-avroSchema-editor"></div>
+    </div>
 </script>
 
+<script type="text/html" data-help-name="msensor-avro">
+    <p>Would be Avro deserializer</p>
+</script>
