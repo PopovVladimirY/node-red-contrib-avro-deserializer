@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('msensor-avro',{
+        category: 'function',
+        color: '#b6ffcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "",
+        icon: "file.svg",
+        label: function() {
+            return this.name||"msensor-avro";
+        },
+        oneditprepare: function() {
+            this.editor = RED.editor.createEditor({
+                id: 'avro-schema-editor',
+                mode: 'ace/mode/text',
+                value: this.avroSchema
+            });
+        },
+        oneditsave: function() {
+            this.avroSchema = this.editor.getValue();
+            this.editor.destroy();
+            delete this.editor;
+        },
+        oneditcancel: function() {
+            this.editor.destroy();
+            delete this.editor;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="msensor-avro">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Avro Schema">
+    </div>
+    <!--div style="height: 250px; min-height:150px;" class="node-text-editor" id="avro-schema-editor">
+    </div-->
+</script>
+

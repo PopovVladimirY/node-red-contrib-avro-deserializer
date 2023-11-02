@@ -1,0 +1,16 @@
+{
+  "name": "msensor-avro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "msensor-avro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "msensor-avro": "msensor-avro.js"
+    }
+  }
+}
