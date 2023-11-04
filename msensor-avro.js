@@ -10,8 +10,14 @@ module.exports = function(RED) {
         node.on('input', function(msg, send, done) {
             try {
                 if (Buffer.isBuffer(msg.payload.value)) {
-                    msg.payload = msensor_type.fromBuffer(msg.payload.value);
-                    node.error(msg.payload['temperature']);
+                    stats = msensor_type.fromBuffer(msg.payload.value);
+                    var data = {}
+                    for (const [key, el] of Object.entries(stats)) {
+                      for (const [idx, x] of Object.entries(el)) {
+                        data[key] = x;
+                      }
+                    }                    
+                    msg.payload = data;
                     send(msg);
                 } else {
                     node.error("Payload is not Avro: " + msg.payload.value);

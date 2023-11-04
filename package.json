@@ -14,6 +14,7 @@
     }
   },
   "dependencies": {
-    "avro-js": "^1.11.3"
+    "avro-js": "^1.11.3",
+    "kafka-js": "^0.0.0"
   }
 }
